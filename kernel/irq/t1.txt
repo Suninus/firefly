@@ -1,0 +1,99 @@
+
+time_irq.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <irq_time0>:
+   0:	e92d4010 	push	{r4, lr}
+   4:	e59f301c 	ldr	r3, [pc, #28]	; 28 <irq_time0+0x28>
+   8:	e5931000 	ldr	r1, [r3]
+   c:	e2812001 	add	r2, r1, #1
+  10:	e5832000 	str	r2, [r3]
+  14:	e59f0010 	ldr	r0, [pc, #16]	; 2c <irq_time0+0x2c>
+  18:	ebfffffe 	bl	0 <x_printf>
+  1c:	e3a00000 	mov	r0, #0
+  20:	e8bd4010 	pop	{r4, lr}
+  24:	e12fff1e 	bx	lr
+	...
+
+00000030 <irqInit>:
+  30:	e92d4010 	push	{r4, lr}
+  34:	e3a0344a 	mov	r3, #1241513984	; 0x4a000000
+  38:	e3e02000 	mvn	r2, #0
+  3c:	e5832008 	str	r2, [r3, #8]
+  40:	e583201c 	str	r2, [r3, #28]
+  44:	e5832000 	str	r2, [r3]
+  48:	e5832010 	str	r2, [r3, #16]
+  4c:	e5832004 	str	r2, [r3, #4]
+  50:	e3e01c02 	mvn	r1, #512	; 0x200
+  54:	e5831008 	str	r1, [r3, #8]
+  58:	e3a01000 	mov	r1, #0
+  5c:	e583100c 	str	r1, [r3, #12]
+  60:	e5832018 	str	r2, [r3, #24]
+  64:	e59f0008 	ldr	r0, [pc, #8]	; 74 <irqInit+0x44>
+  68:	ebfffffe 	bl	0 <x_printf>
+  6c:	e8bd4010 	pop	{r4, lr}
+  70:	e12fff1e 	bx	lr
+  74:	00000018 	andeq	r0, r0, r8, lsl r0
+
+00000078 <openirq>:
+  78:	e92d4010 	push	{r4, lr}
+  7c:	e3a00093 	mov	r0, #147	; 0x93
+  80:	e121f000 	msr	CPSR_c, r0
+  84:	e59f0008 	ldr	r0, [pc, #8]	; 94 <openirq+0x1c>
+  88:	ebfffffe 	bl	0 <x_printf>
+  8c:	e8bd4010 	pop	{r4, lr}
+  90:	e12fff1e 	bx	lr
+  94:	00000030 	andeq	r0, r0, r0, lsr r0
+
+Disassembly of section .bss:
+
+00000000 <timer_counter>:
+   0:	00000000 	andeq	r0, r0, r0
+
+Disassembly of section .rodata.str1.4:
+
+00000000 <.rodata.str1.4>:
+   0:	73696874 	cmnvc	r9, #7602176	; 0x740000
+   4:	20736920 	rsbscs	r6, r3, r0, lsr #18
+   8:	20656874 	rsbcs	r6, r5, r4, ror r8
+   c:	20716e69 	rsbscs	r6, r1, r9, ror #28
+  10:	0a64253a 	beq	1909500 <openirq+0x1909488>
+  14:	00000000 	andeq	r0, r0, r0
+  18:	49717269 	ldmdbmi	r1!, {r0, r3, r5, r6, r9, ip, sp, lr}^
+  1c:	2074696e 	rsbscs	r6, r4, lr, ror #18
+  20:	74696e69 	strbtvc	r6, [r9], #-3689	; 0xe69
+  24:	696c6169 	stmdbvs	ip!, {r0, r3, r5, r6, r8, sp, lr}^
+  28:	676e697a 	undefined instruction 0x676e697a
+  2c:	0000000a 	andeq	r0, r0, sl
+  30:	6e65706f 	cdpvs	0, 6, cr7, cr5, cr15, {3}
+  34:	71726920 	cmnvc	r2, r0, lsr #18
+  38:	00000a20 	andeq	r0, r0, r0, lsr #20
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	43434700 	movtmi	r4, #14080	; 0x3700
+   4:	6328203a 	teqvs	r8, #58	; 0x3a
+   8:	2d676e74 	stclcs	14, cr6, [r7, #-464]!	; 0xfffffe30
+   c:	2e362e31 	mrccs	14, 1, r2, cr6, cr1, {1}
+  10:	34202931 	strtcc	r2, [r0], #-2353	; 0x931
+  14:	332e342e 	teqcc	lr, #771751936	; 0x2e000000
+	...
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00002941 	andeq	r2, r0, r1, asr #18
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	0000001f 	andeq	r0, r0, pc, lsl r0
+  10:	00543405 	subseq	r3, r4, r5, lsl #8
+  14:	01080206 	tsteq	r8, r6, lsl #4
+  18:	04120109 	ldreq	r0, [r2], #-265	; 0x109
+  1c:	01150114 	tsteq	r5, r4, lsl r1
+  20:	01180317 	tsteq	r8, r7, lsl r3
+  24:	021a0119 	andseq	r0, sl, #1073741830	; 0x40000006
+  28:	Address 0x00000028 is out of bounds.
+
