@@ -48,4 +48,4 @@ clean:
 	$(MAKE) clean -C diver/
 	$(MAKE) clean -C kernel/
 	$(MAKE) clean -C init/
-	@rm image image.bin
+	@rm -f image image.bin
